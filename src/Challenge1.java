@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.List;
 import java.util.Random;
 
 public class Challenge1 {
@@ -47,6 +48,16 @@ public class Challenge1 {
 		return ten_digit_number;
 		
 		
+	}
+	
+	//Method to check if String of text is contained in list 
+	public static boolean ListCheck(String str, List<String> list) {
+		
+		boolean check = list.contains(str);
+		
+		boolean check_converted = (check == true)?false:true;
+		
+		return check_converted;
 	}
 
 }
