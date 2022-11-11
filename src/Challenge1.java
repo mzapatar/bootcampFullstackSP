@@ -26,18 +26,22 @@ public class Challenge1 {
 		
 		Random rand = new Random();
 		  
-		Integer eight_digit_number = rand.nextInt(100000000);
+		Integer random_number = rand.nextInt(100000000);
 		
-		String str_eight_digit_number = eight_digit_number.toString();
+		String str_random_number = random_number.toString();
+		
+		int needed_width = 8;
+		
+		String eight_digit_number = String.format("%0" + needed_width + "d", Integer.valueOf(str_random_number));
 		
 		String ten_digit_number = "";
       
 		boolean check = type.toLowerCase().contains("a");
       
 		if (check == true) {
-			ten_digit_number = ten_digit_number + "54" + str_eight_digit_number;
+			ten_digit_number = ten_digit_number + "54" + eight_digit_number;
 		} else {
-			ten_digit_number = ten_digit_number + "08" + str_eight_digit_number;
+			ten_digit_number = ten_digit_number + "08" + eight_digit_number;
 		}
 		
 		return ten_digit_number;
