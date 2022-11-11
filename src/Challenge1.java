@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -6,6 +7,7 @@ public class Challenge1 {
 
 	public static void main(String[] args) {
 		
+		//User input to use Random10DigNumber method (see method below main)
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Please type 'Type A' or 'Type B': ");
@@ -19,10 +21,25 @@ public class Challenge1 {
 		System.out.println("The generated number is " + ten_digit_number);
 		
 		sc.close();
+		
+		//List and String to use ListCheck method (see method below main). The program will check if the number generated via Random10DigNumber is contained in a list of 4 ten-digit numbers.
+		String [] numbers = {"5469660026","5400264588","0845961536","0810000651"};
+		
+		List<String> number_list = Arrays.asList(numbers);
+		
+		boolean check = ListCheck(ten_digit_number,number_list);
+		
+		System.out.println("Is the number available?: " + check);
+		
+		if (check == true) {
+			System.out.println(ten_digit_number + " has been successfully assigned. ");
+		} else {
+			System.out.println(ten_digit_number + " is unavailable and cannot be assigned. ");
+		}
 
 	}
 	
-	//Method to generate a 10-digit pseudo-random number 
+	//Method to generate two types of 10-digit pseudo-random numbers (Type A starts in 54 and Type B starts in 08) 
 	public static String Random10DigNumber(String type) {
 		
 		Random rand = new Random();
@@ -50,7 +67,7 @@ public class Challenge1 {
 		
 	}
 	
-	//Method to check if String of text is contained in list 
+	//Method to check if given String of text is contained in given list. If the number is contained, the method will return false
 	public static boolean ListCheck(String str, List<String> list) {
 		
 		boolean check = list.contains(str);
